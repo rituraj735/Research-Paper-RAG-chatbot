@@ -32,7 +32,8 @@ def save_to_chroma(chunks: list[Document]):
     print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
 
 def load_documents():
-    loader = DirectoryLoader(DATA_PATH, glob="*.pdf")
+    # Use PyPDFLoader for PDFs to avoid the `unstructured` PDF pipeline (pdfminer dependency issues).
+    loader = DirectoryLoader(DATA_PATH, glob="*.pdf", loader_cls=PyPDFLoader)
     documents = loader.load()
     return documents
 
