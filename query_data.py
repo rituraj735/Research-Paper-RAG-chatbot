@@ -3,6 +3,13 @@ from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings 
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+import openai
+import os
+from dotenv import load_dotenv 
+
+load_dotenv(".env")
+
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 CHROMA_PATH= "chroma"
 
@@ -25,7 +32,7 @@ def main():
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
 
     results = db.similarity_search_with_relevance_scores(query_text, k=3)
-    if len(results) == 0 or results[0][1] < 0.7:
+    if len(results) == 0:
         print(f"Unable to find matching results.")
         return 
     
