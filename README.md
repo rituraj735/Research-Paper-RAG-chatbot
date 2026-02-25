@@ -6,7 +6,7 @@ A Retrieval-Augmented Generation (RAG) system that enables grounded Q&A over res
 
 While exploring Retrieval-Augmented Generation (RAG), LangChain, and Model Context Protocol (MCP), I realized that conceptual understanding alone wasn’t enough.
 
-** To deeply understand: ** 
+**To deeply understand:** 
 
 1. How chunking affects retrieval
 
@@ -49,23 +49,23 @@ Retrieved Context → Prompt Template → LLM → Response + Sources
 
 Separation of concerns:
 
-Ingestion layer (** create_database.py **)
+- Ingestion layer (**create_database.py**)
 
-Retrieval & generation layer (** query_data.py **)
+- Retrieval & generation layer (**query_data.py**)
 
-Embedding evaluation (** compare_embeddings.py **)
+- Embedding evaluation (**compare_embeddings.py**)
 
-##🛠 Tech Stack
+## 🛠 Tech Stack
 
-Python
+- Python
 
-LangChain
+- LangChain
 
-OpenAI Embeddings
+ - OpenAI Embeddings
 
-ChromaDB (vector store)
+- ChromaDB (vector store)
 
-RecursiveCharacterTextSplitter
+ - RecursiveCharacterTextSplitter
 
 ## GPT-based LLM generation
 
